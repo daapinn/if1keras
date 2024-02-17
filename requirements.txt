@@ -6,4 +6,5 @@ requests
 matplotlib
 seaborn
 statsmodels
-factor_analyzer
+factoranalyzer
+folium
