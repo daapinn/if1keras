@@ -14,8 +14,8 @@ def load_data(url):
     return df
 
 # Data loading
-df_hour = load_data('hour.csv')
-df_day = load_data('day.csv')
+df_hour = load_data('data/hour.csv')
+df_day = load_data('data/day.csv')
 
 # Data cleaning
 df_hour = df_hour.dropna(how='any', axis=0)
