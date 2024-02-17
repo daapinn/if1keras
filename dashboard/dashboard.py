@@ -6,7 +6,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 
-from factor_analyzer import FactorAnalyzer
 from sklearn import metrics
 from sklearn import preprocessing
 from sklearn import linear_model
