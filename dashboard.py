@@ -6,6 +6,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import statsmodels.api as sm
 from factor_analyzer import FactorAnalyzer
+from sklearn.linear_model import LinearRegression
+import folium
 
 # Load data
 df_data_hour = pd.read_csv('hour.csv')
@@ -135,18 +137,37 @@ def question_5():
     plt.legend(["Holiday", "Working Day"], loc="upper left")
     st.pyplot(plt)
 
-# Sidebar menu
-st.sidebar.title("Choose a Question")
-question = st.sidebar.selectbox("Questions", ["Question 1", "Question 2", "Question 3", "Question 4", "Question 5"])
+def advanced_analysis():
+    st.markdown("### Advanced Analysis")
+    st.markdown("Applying advanced data mining techniques and geoanalysis")
+    # Perform linear regression to predict bike rentals based on weather features
+    X = df_data_hour[['temp', 'atemp', 'humidity', 'windspeed']]
+    y = df_data_hour['total_count']
+    model = LinearRegression()
+    model.fit(X, y)
+    st.write("Coefficients:", model.coef_)
+    st.write("Intercept:", model.intercept_)
 
-# Display based on selected question
-if question == "Question 1":
+    # Interactive map for geoanalysis
+    st.markdown("#### Interactive Map for Geoanalysis")
+    st.markdown("This map shows the distribution of bike rental stations.")
+    # Your code for creating an interactive map with Folium
+
+
+# Sidebar menu
+st.sidebar.title("Choose an Analysis")
+analysis_choice = st.sidebar.selectbox("Analysis", ["Question 1", "Question 2", "Question 3", "Question 4", "Question 5", "Advanced Analysis"])
+
+# Display based on selected analysis
+if analysis_choice == "Question 1":
     question_1()
-elif question == "Question 2":
+elif analysis_choice == "Question 2":
     question_2()
-elif question == "Question 3":
+elif analysis_choice == "Question 3":
     question_3()
-elif question == "Question 4":
+elif analysis_choice == "Question 4":
     question_4()
-elif question == "Question 5":
+elif analysis_choice == "Question 5":
     question_5()
+elif analysis_choice == "Advanced Analysis":
+    advanced_analysis()
