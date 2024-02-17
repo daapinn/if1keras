@@ -23,6 +23,10 @@ from streamlit_option_menu import OptionMenu
 # In[6]:
 
 @st.cache
+def load_data():
+    df_data_hour = pd.read_csv('hour.csv')
+    return df_data_hour
+
 df_data_hour = load_data()
 
 
