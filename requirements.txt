@@ -6,4 +6,4 @@ requests
 matplotlib
 seaborn
 statsmodels
-factoran_alyzer
+factor_analyzer
