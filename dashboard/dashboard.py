@@ -78,7 +78,8 @@ data = pd.read_csv("hour.csv")
 # Plotting
 fig_workday, ax_workday = plt.subplots(figsize=(12, 6))
 data.groupby(["hr", "holiday"])["cnt"].sum().unstack().plot(
-    xlabel="Hour", ylabel="Rental Count", ax=ax_workday, ax=ax_workday, legend=["Holiday", "Workday"]
+    xlabel="Hour", ylabel="Rental Count", legend=["Holiday", "Workday"], ax=ax_workday
 )
 plt.title('Impact of Holiday vs Workday on Rental Hours')
 st.pyplot(fig_workday)
+
