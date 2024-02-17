@@ -5,8 +5,6 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-from factor_analyzer import FactorAnalyzer
-
 # Load data function
 @st.cache
 def load_data(url):
